@@ -27,6 +27,12 @@ namespace TenDesignPatterns
 
             #endregion
 
+            #region Iterator
+
+            PrintAllVehiclesInfoUsingIteratorPattern();
+
+            #endregion
+
             Console.ReadKey();
         }
     }
