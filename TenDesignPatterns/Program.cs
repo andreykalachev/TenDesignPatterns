@@ -8,18 +8,24 @@ namespace TenDesignPatterns
     {
         public static void Main(string[] args)
         {
-            // abstract factory usage - start
+            #region Abstract Factory
+
             GetAllVehiclesInfo();
-            // abstract factory usage - end
 
-            //singleton usage - start
+            #endregion
+
+            #region Singleton
+
             AddCarsToStorage(new VolvoFactory(), 5);
-            //singleton usage - end
 
-            //facade usage - start
+            #endregion
+
+            #region Facade
+
             SaveAllVehiclesToFile();
             GetAllVehiclesFromFile();
-            //facade usage - end
+
+            #endregion
 
             Console.ReadKey();
         }

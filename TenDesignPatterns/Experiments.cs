@@ -10,7 +10,7 @@ namespace TenDesignPatterns
     {
         public static void Print(string s = null)
         {
-            Console.WriteLine(s ?? " ");
+            Console.WriteLine(s ?? string.Empty);
         }
 
         private static void GetFactoryVehiclesInfo(IAbstractVehicleFactory abstractFactory)
