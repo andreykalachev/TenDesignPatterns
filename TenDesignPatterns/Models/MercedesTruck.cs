@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TenDesignPatterns.Models.Interfaces;
 
 namespace TenDesignPatterns.Models
 {
-    class MercedesTruck : ITruck
+    public class MercedesTruck : ITruck
     {
         public int Size { get; set; }
+
         public int CarryingCapacity { get; set; }
 
         public MercedesTruck()
@@ -28,10 +25,9 @@ namespace TenDesignPatterns.Models
             Console.WriteLine("Stop Mercedes Truck");
         }
 
-        public void Info()
+        public string GetInfo()
         {
-            Console.WriteLine($"This is Mercedes Truck;\t size: {Size};\t carrying capacity: {CarryingCapacity}");
+            return $"This is Mercedes Truck;\t size: {Size};\t carrying capacity: {CarryingCapacity}";
         }
-
     }
 }

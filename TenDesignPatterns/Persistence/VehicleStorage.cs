@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TenDesignPatterns.Models.Interfaces;
 
 namespace TenDesignPatterns.Persistence
@@ -10,10 +6,14 @@ namespace TenDesignPatterns.Persistence
     public class VehicleStorage
     {
         public List<IVehicle> Vehicles { get; set; }
-        public int Count => Vehicles.Count;
+
+        public int Count
+        {
+            get { return Vehicles.Count; }
+        }
 
         private static VehicleStorage _instance;
- 
+        private static readonly object Lock = new object();
 
         private VehicleStorage()
         {
@@ -42,7 +42,17 @@ namespace TenDesignPatterns.Persistence
 
         public static VehicleStorage GetInstance()
         {
-            return _instance ?? (_instance = new VehicleStorage());
+            if (_instance == null)
+            {
+                lock (Lock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = new VehicleStorage();
+                    }
+                }
+            }
+            return _instance;
         }
     }
 }

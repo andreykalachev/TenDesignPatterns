@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TenDesignPatterns.Models.Interfaces;
 
 namespace TenDesignPatterns.Models
 {
-    class VolvoTruck : ITruck
+    public class VolvoTruck : ITruck
     {
         public int Size { get; set; }
+
         public int CarryingCapacity { get; set; }
 
         public VolvoTruck()
@@ -28,10 +25,9 @@ namespace TenDesignPatterns.Models
             Console.WriteLine("Stop Volvo Truck");
         }
 
-        public void Info()
+        public string GetInfo()
         {
-            Console.WriteLine($"This is Volvo Truck;\t size: {Size};\t carrying capacity: {CarryingCapacity}");
+            return $"This is Volvo Truck;\t size: {Size};\t carrying capacity: {CarryingCapacity}";
         }
-
     }
 }

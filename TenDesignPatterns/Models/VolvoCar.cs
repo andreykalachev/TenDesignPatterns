@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TenDesignPatterns.Models.Interfaces;
 
 namespace TenDesignPatterns.Models
 {
     public class VolvoCar : ICar
     {
-
         public string Color { get; set; }
+
         public int NumberOfPassengers { get; set; }
 
         public VolvoCar()
@@ -29,10 +25,9 @@ namespace TenDesignPatterns.Models
             Console.WriteLine("Stop Volvo Car");
         }
 
-        public void Info()
+        public string GetInfo()
         {
-            Console.WriteLine($"This is Volvo Car;\t color: {Color};\t number of passengers: {NumberOfPassengers}");
+            return $"This is Volvo Car;\t color: {Color};\t number of passengers: {NumberOfPassengers}";
         }
-
     }
 }

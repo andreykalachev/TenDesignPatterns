@@ -1,38 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TenDesignPatterns.Factories;
-using TenDesignPatterns.Persistence;
+using static TenDesignPatterns.Experiments;
 
 namespace TenDesignPatterns
 {
-    class Program
+    public class Program
     {
-        public static void FactoryVehiclesInfo(IAbstractVehicleFactory abstractFactory)
+        public static void Main(string[] args)
         {
-            var car = abstractFactory.CreateCar();
-            var truck = abstractFactory.CreateTruck();
+            #region Abstract Factory
 
-            car.Info();
-            truck.Info();
-        } 
-        static void Main(string[] args)
-        {
-            var mercedesFactory = new MercedesFactory();
-            FactoryVehiclesInfo(mercedesFactory);
-            Console.WriteLine();
+            GetAllVehiclesInfo();
 
-            var volvoFactory = new VolvoFactory();
-            FactoryVehiclesInfo(volvoFactory);
+            #endregion
 
-            Console.WriteLine("\nBuilding loop----");
-            for (var i = 0; i < 5; i++)
-            {
-                VehicleStorage.GetInstance().Add(volvoFactory.CreateCar());
-            }
-            Console.WriteLine($"\nYou have built {VehicleStorage.GetInstance().Count} cars in a loop\n");
+            #region Singleton
+
+            AddCarsToStorage(new VolvoFactory(), 5);
+
+            #endregion
+
+            #region Facade
+
+            SaveAllVehiclesToFile();
+            GetAllVehiclesFromFile();
+
+            #endregion
 
             Console.ReadKey();
         }
