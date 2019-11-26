@@ -57,10 +57,11 @@ namespace TenDesignPatterns
             Print($"you have {savedVehicles?.Count()} vehicles saved");
         }
 
-        public static void PrintAllVehiclesInfo()
+        public static void PrintAllVehiclesInfoUsingIteratorPattern()
         {
-            Print("\nforeach loop through all vehicles");
             var vehicleStorage = VehicleStorage.GetInstance();
+
+            Print("\nforeach loop through all vehicles");
             foreach (var vehicle in vehicleStorage)
             {
                 Print(vehicle.GetInfo());

@@ -29,7 +29,7 @@ namespace TenDesignPatterns
 
             #region Iterator
 
-            PrintAllVehiclesInfo();
+            PrintAllVehiclesInfoUsingIteratorPattern();
 
             #endregion
 

@@ -4,7 +4,7 @@ using TenDesignPatterns.Models.Interfaces;
 
 namespace TenDesignPatterns.Persistence
 {
-    public class VehicleStorage : IEnumerable
+    public class VehicleStorage : IEnumerable<IVehicle>
     {
         public List<IVehicle> Vehicles { get; set; }
 
@@ -61,7 +61,7 @@ namespace TenDesignPatterns.Persistence
             return GetEnumerator();
         }
 
-        public VehicleStorageEnumerator GetEnumerator()
+        public IEnumerator<IVehicle> GetEnumerator()
         {
             return new VehicleStorageEnumerator(Vehicles);
         }

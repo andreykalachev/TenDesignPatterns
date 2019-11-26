@@ -6,7 +6,7 @@ using TenDesignPatterns.Models.Interfaces;
 
 namespace TenDesignPatterns.Persistence
 {
-    public class VehicleStorageEnumerator : IEnumerator
+    public class VehicleStorageEnumerator : IEnumerator<IVehicle>
     {
         private readonly IList<IVehicle> _vehicles;
         private int _position = -1;
@@ -49,5 +49,7 @@ namespace TenDesignPatterns.Persistence
                 }
             }
         }
+
+        void IDisposable.Dispose() { }
     }
 }
