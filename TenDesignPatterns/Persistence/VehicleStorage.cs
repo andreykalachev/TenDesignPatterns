@@ -7,7 +7,7 @@ namespace TenDesignPatterns.Persistence
 {
     public class VehicleStorage : IEnumerable<IVehicle>
     {
-        public List<IVehicle> Vehicles { get; set; }
+        public IList<IVehicle> Vehicles { get; set; }
 
         public EventManager EventManager { get; set; }
 

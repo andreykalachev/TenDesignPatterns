@@ -6,7 +6,7 @@ namespace TenDesignPatterns.Services.EventManager
     {
         public string CurrentEventName { get; set; }
 
-        private List<IObserver> _observers;
+        private IList<IObserver> _observers;
 
         public EventManager()
         {
