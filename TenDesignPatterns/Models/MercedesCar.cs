@@ -9,6 +9,16 @@ namespace TenDesignPatterns.Models
 {
     public class MercedesCar : ICar
     {
+
+        public string Color { get; set; }
+        public int NumberOfPassengers { get; set; }
+
+        public MercedesCar()
+        {
+            Color = "Red";
+            NumberOfPassengers = 2;
+        }
+
         public void Drive()
         {
             Console.WriteLine("Drive MercedesCar Car");
@@ -21,10 +31,7 @@ namespace TenDesignPatterns.Models
 
         public void Info()
         {
-            Console.WriteLine("This is MercedesCar Car");
+            Console.WriteLine($"This is MercedesCar Car;\t color: {Color};\t number of passengers: {NumberOfPassengers}");
         }
-
-        public string Color { get; set; }
-        public int NumberOfPassengers { get; set; }
     }
 }

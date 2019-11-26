@@ -9,6 +9,15 @@ namespace TenDesignPatterns.Models
 {
     class VolvoTruck : ITruck
     {
+        public int Size { get; set; }
+        public int CarryingCapacity { get; set; }
+
+        public VolvoTruck()
+        {
+            Size = 20;
+            CarryingCapacity = 15;
+        }
+
         public void Drive()
         {
             Console.WriteLine("Drive Volvo Truck");
@@ -21,10 +30,8 @@ namespace TenDesignPatterns.Models
 
         public void Info()
         {
-            Console.WriteLine("This is Volvo Truck");
+            Console.WriteLine($"This is Volvo Truck;\t size: {Size};\t carrying capacity: {CarryingCapacity}");
         }
 
-        public int Size { get; set; }
-        public int CarryingCapacity { get; set; }
     }
 }
