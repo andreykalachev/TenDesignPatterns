@@ -1,5 +1,7 @@
 ﻿using System;
 using TenDesignPatterns.Factories;
+using TenDesignPatterns.Persistence;
+using TenDesignPatterns.Services.EventManager;
 using static TenDesignPatterns.Experiments;
 
 namespace TenDesignPatterns
@@ -8,6 +10,15 @@ namespace TenDesignPatterns
     {
         public static void Main(string[] args)
         {
+            #region Observer
+
+            var vehicleStorage = VehicleStorage.GetInstance();
+            var observer = new ConsoleLogger();
+
+            vehicleStorage.EventManager.Subscribe(observer);
+
+            #endregion
+
             #region Abstract Factory
 
             GetAllVehiclesInfo();
