@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TenDesignPatterns.Factories;
+using TenDesignPatterns.Persistence;
 
 namespace TenDesignPatterns
 {
@@ -19,9 +20,20 @@ namespace TenDesignPatterns
         } 
         static void Main(string[] args)
         {
-            FactoryVehiclesInfo(new MercedesFactory());
+            var mercedesFactory = new MercedesFactory();
+            FactoryVehiclesInfo(mercedesFactory);
             Console.WriteLine();
-            FactoryVehiclesInfo(new VolvoFactory());
+
+            var volvoFactory = new VolvoFactory();
+            FactoryVehiclesInfo(volvoFactory);
+
+            Console.WriteLine("\nBuilding loop----");
+            for (var i = 0; i < 5; i++)
+            {
+                VehicleStorage.GetInstance().Add(volvoFactory.CreateCar());
+            }
+            Console.WriteLine($"\nYou have built {VehicleStorage.GetInstance().Count} cars in a loop\n");
+
             Console.ReadKey();
         }
     }

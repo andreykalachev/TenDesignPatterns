@@ -53,6 +53,7 @@
     <Compile Include="Models\MercedesTruck.cs" />
     <Compile Include="Models\VolvoCar.cs" />
     <Compile Include="Models\VolvoTruck.cs" />
+    <Compile Include="Persistence\VehicleStorage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
