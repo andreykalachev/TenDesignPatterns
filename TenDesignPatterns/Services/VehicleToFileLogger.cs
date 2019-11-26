@@ -13,23 +13,33 @@ namespace TenDesignPatterns.Services
 
         public static void SaveVehicles(IEnumerable<IVehicle> vehicles)
         {
-            if (vehicles == null) return;
+            if (vehicles == null)
+            {
+                return;
+            }
+
             using (var streamWriter = new StreamWriter(VehiclesFile))
             {
-                streamWriter.WriteLine(JsonConvert.SerializeObject(vehicles, SettingsJson));
+                var serializedObject = JsonConvert.SerializeObject(vehicles, SettingsJson);
+                streamWriter.WriteLine(serializedObject);
             }
         }
 
         public static IEnumerable<IVehicle> GetVehicles()
         {
             IEnumerable<IVehicle> vehicles = new List<IVehicle>();
-            if (!File.Exists(VehiclesFile)) return vehicles;
+
+            if (!File.Exists(VehiclesFile))
+            {
+                return vehicles;
+            }
 
             try
             {
                 using (var streamReader = new StreamReader(VehiclesFile))
                 {
-                    vehicles = JsonConvert.DeserializeObject<IEnumerable<IVehicle>>(streamReader.ReadToEnd(), SettingsJson);
+                    var fileContent = streamReader.ReadToEnd();
+                    vehicles = JsonConvert.DeserializeObject<IEnumerable<IVehicle>>(fileContent, SettingsJson);
                 }
             }
             catch (Exception e)

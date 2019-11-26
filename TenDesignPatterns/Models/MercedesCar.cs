@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TenDesignPatterns.Models.Interfaces;
 
 namespace TenDesignPatterns.Models
 {
     public class MercedesCar : ICar
     {
-
         public string Color { get; set; }
         public int NumberOfPassengers { get; set; }
 
@@ -29,7 +24,7 @@ namespace TenDesignPatterns.Models
             Console.WriteLine("Stop MercedesCar Car");
         }
 
-        public string Info()
+        public string GetInfo()
         {
             return $"This is MercedesCar Car;\t color: {Color};\t number of passengers: {NumberOfPassengers}";
         }

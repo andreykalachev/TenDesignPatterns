@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Experiments.cs" />
     <Compile Include="Factories\IAbstractVehicleFactory.cs" />
     <Compile Include="Factories\MercedesFactory.cs" />
     <Compile Include="Factories\VolvoFactory.cs" />

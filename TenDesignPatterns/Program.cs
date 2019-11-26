@@ -1,54 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TenDesignPatterns.Factories;
-using TenDesignPatterns.Persistence;
-using TenDesignPatterns.Services;
+using static TenDesignPatterns.Experiments;
 
 namespace TenDesignPatterns
 {
-    class Program
+    public class Program
     {
-        public static void FactoryVehiclesInfo(IAbstractVehicleFactory abstractFactory)
+        public static void Main(string[] args)
         {
-            var car = abstractFactory.CreateCar();
-            var truck = abstractFactory.CreateTruck();
+            // abstract factory usage - start
+            GetAllVehiclesInfo();
+            // abstract factory usage - end
 
-            Console.WriteLine(car.Info());
-            Console.WriteLine(truck.Info());
-        } 
-        static void Main(string[] args)
-        {
-            // abstract factory usage
-            var mercedesFactory = new MercedesFactory();
-            FactoryVehiclesInfo(mercedesFactory);
-            Console.WriteLine();
+            //singleton usage - start
+            AddCarsToStorage(new VolvoFactory(), 5);
+            //singleton usage - end
 
-            var volvoFactory = new VolvoFactory();
-            FactoryVehiclesInfo(volvoFactory);
-            // abstract factory usage
-
-
-            //singleton usage
-            Console.WriteLine("\nBuilding loop----");
-            for (var i = 0; i < 5; i++)
-            {
-                //
-                VehicleStorage.GetInstance().Add(volvoFactory.CreateCar());
-            }
-            Console.WriteLine($"\nYou have built {VehicleStorage.GetInstance().Count} cars in a loop\n");
-            //singleton usage
-
-
-            //facade usage
-            Console.WriteLine("saving vehicles...");
-            VehicleToFileLogger.SaveVehicles(VehicleStorage.GetInstance().GetAll());
-            var savedVehicles = VehicleToFileLogger.GetVehicles();
-            Console.WriteLine($"you have {savedVehicles?.Count()} vehicles saved");
-            //facade usage
-
+            //facade usage - start
+            SaveAllVehiclesToFile();
+            GetAllVehiclesFromFile();
+            //facade usage - end
 
             Console.ReadKey();
         }
