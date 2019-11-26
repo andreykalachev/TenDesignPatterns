@@ -48,11 +48,10 @@ namespace TenDesignPatterns
             #region Template
 
             Delivery mercedesDelivery = new MercedesDelivery(40, 30);
-            Delivery fordDelivery = new FordDelivery(10, 350);
+            Delivery volvoDelivery = new VolvoDelivery(10, 350);
 
-            mercedesDelivery.Deliver();
-            Console.WriteLine();
-            fordDelivery.Deliver();
+            TestDelivery(mercedesDelivery);
+            TestDelivery(volvoDelivery);
 
             #endregion
 

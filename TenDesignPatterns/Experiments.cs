@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using TenDesignPatterns.Factories;
+using TenDesignPatterns.Models.Delivery;
 using TenDesignPatterns.Persistence;
 using TenDesignPatterns.Services;
 
@@ -66,6 +67,12 @@ namespace TenDesignPatterns
             {
                 Print(vehicle.GetInfo());
             }
+        }
+
+        public static void TestDelivery(Delivery delivery)
+        {
+            delivery.Deliver();
+            Console.WriteLine();
         }
     }
 }

@@ -51,7 +51,7 @@
     <Compile Include="Factories\MercedesFactory.cs" />
     <Compile Include="Factories\VolvoFactory.cs" />
     <Compile Include="Models\Delivery\Delivery.cs" />
-    <Compile Include="Models\Delivery\FordDelivery.cs" />
+    <Compile Include="Models\Delivery\VolvoDelivery.cs" />
     <Compile Include="Models\Delivery\MercedesDelivery.cs" />
     <Compile Include="Models\MercedesCar.cs" />
     <Compile Include="Models\Interfaces\ICar.cs" />
