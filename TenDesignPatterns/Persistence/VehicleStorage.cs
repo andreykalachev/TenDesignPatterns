@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TenDesignPatterns.Models.Interfaces;
 
 namespace TenDesignPatterns.Persistence
 {
-    public class VehicleStorage
+    public class VehicleStorage : IEnumerable
     {
         public List<IVehicle> Vehicles { get; set; }
 
@@ -53,6 +54,16 @@ namespace TenDesignPatterns.Persistence
                 }
             }
             return _instance;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public VehicleStorageEnumerator GetEnumerator()
+        {
+            return new VehicleStorageEnumerator(Vehicles);
         }
     }
 }
