@@ -28,9 +28,9 @@ namespace TenDesignPatterns.Models
             Console.WriteLine("Stop Mercedes Truck");
         }
 
-        public void Info()
+        public string Info()
         {
-            Console.WriteLine($"This is Mercedes Truck;\t size: {Size};\t carrying capacity: {CarryingCapacity}");
+            return $"This is Mercedes Truck;\t size: {Size};\t carrying capacity: {CarryingCapacity}";
         }
 
     }

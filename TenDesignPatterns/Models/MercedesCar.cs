@@ -29,9 +29,9 @@ namespace TenDesignPatterns.Models
             Console.WriteLine("Stop MercedesCar Car");
         }
 
-        public void Info()
+        public string Info()
         {
-            Console.WriteLine($"This is MercedesCar Car;\t color: {Color};\t number of passengers: {NumberOfPassengers}");
+            return $"This is MercedesCar Car;\t color: {Color};\t number of passengers: {NumberOfPassengers}";
         }
     }
 }

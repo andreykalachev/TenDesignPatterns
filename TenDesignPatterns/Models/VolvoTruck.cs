@@ -28,9 +28,9 @@ namespace TenDesignPatterns.Models
             Console.WriteLine("Stop Volvo Truck");
         }
 
-        public void Info()
+        public string Info()
         {
-            Console.WriteLine($"This is Volvo Truck;\t size: {Size};\t carrying capacity: {CarryingCapacity}");
+            return $"This is Volvo Truck;\t size: {Size};\t carrying capacity: {CarryingCapacity}";
         }
 
     }

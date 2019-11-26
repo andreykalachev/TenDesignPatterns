@@ -10,6 +10,6 @@ namespace TenDesignPatterns.Models.Interfaces
     {
         void Drive();
         void Stop();
-        void Info();
+        string Info();
     }
 }

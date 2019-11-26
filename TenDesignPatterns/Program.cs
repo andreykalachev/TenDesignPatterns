@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TenDesignPatterns.Factories;
 using TenDesignPatterns.Persistence;
+using TenDesignPatterns.Services;
 
 namespace TenDesignPatterns
 {
@@ -15,8 +16,8 @@ namespace TenDesignPatterns
             var car = abstractFactory.CreateCar();
             var truck = abstractFactory.CreateTruck();
 
-            car.Info();
-            truck.Info();
+            Console.WriteLine(car.Info());
+            Console.WriteLine(truck.Info());
         } 
         static void Main(string[] args)
         {
@@ -33,6 +34,12 @@ namespace TenDesignPatterns
                 VehicleStorage.GetInstance().Add(volvoFactory.CreateCar());
             }
             Console.WriteLine($"\nYou have built {VehicleStorage.GetInstance().Count} cars in a loop\n");
+
+
+            Console.WriteLine("saving vehicles...");
+            VehicleToFileLogger.SaveVehicles(VehicleStorage.GetInstance().GetAll());
+            var savedVehicles = VehicleToFileLogger.GetVehicles();
+            Console.WriteLine($"you have {savedVehicles?.Count()} vehicles saved");
 
             Console.ReadKey();
         }
