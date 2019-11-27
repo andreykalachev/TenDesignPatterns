@@ -1,7 +1,4 @@
 ﻿using System;
-using TenDesignPatterns.Factories;
-using TenDesignPatterns.Persistence;
-using TenDesignPatterns.Services.EventManager;
 using static TenDesignPatterns.Experiments;
 
 namespace TenDesignPatterns
@@ -12,35 +9,51 @@ namespace TenDesignPatterns
         {
             #region Observer
 
-            var vehicleStorage = VehicleStorage.GetInstance();
-            var observer = new ConsoleLogger();
+            //commented out to demonstrate template method
 
-            vehicleStorage.EventManager.Subscribe(observer);
+            //var vehicleStorage = VehicleStorage.GetInstance();
+            //var observer = new ConsoleLogger();
+
+            //vehicleStorage.EventManager.Subscribe(observer);
 
             #endregion
 
             #region Abstract Factory
 
-            GetAllVehiclesInfo();
+            //commented out to demonstrate template method
+
+            //GetAllVehiclesInfo();
 
             #endregion
 
             #region Singleton
 
-            AddCarsToStorage(new VolvoFactory(), 5);
+            //commented out to demonstrate template method
+
+            //AddCarsToStorage(new VolvoFactory(), 5);
 
             #endregion
 
             #region Facade
 
-            SaveAllVehiclesToFile();
-            GetAllVehiclesFromFile();
+            //commented out to demonstrate template method
+
+            //SaveAllVehiclesToFile();
+            //GetAllVehiclesFromFile();
 
             #endregion
 
             #region Iterator
 
-            PrintAllVehiclesInfoUsingIteratorPattern();
+            //commented out to demonstrate template method
+
+            //PrintAllVehiclesInfoUsingIteratorPattern();
+
+            #endregion
+
+            #region Template
+
+            TestDeliveryTemplate();
 
             #endregion
 
