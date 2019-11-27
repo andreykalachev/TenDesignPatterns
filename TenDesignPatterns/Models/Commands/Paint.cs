@@ -1,4 +1,5 @@
-﻿using TenDesignPatterns.Models.Commands.Interfaces;
+﻿using System.Linq;
+using TenDesignPatterns.Models.Commands.Interfaces;
 using TenDesignPatterns.Models.Interfaces;
 using ICommand = TenDesignPatterns.Models.Commands.Interfaces.ICommand;
 

@@ -6,7 +6,7 @@ namespace TenDesignPatterns.Models.Commands
 {
     public class GoodPainter : IPainter
     {
-        public List<string> AvailableColors { get; set; }
+        public IEnumerable<string> AvailableColors { get; set; }
 
         public GoodPainter()
         {
