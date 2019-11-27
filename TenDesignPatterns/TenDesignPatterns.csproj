@@ -50,6 +50,13 @@
     <Compile Include="Factories\IAbstractVehicleFactory.cs" />
     <Compile Include="Factories\MercedesFactory.cs" />
     <Compile Include="Factories\VolvoFactory.cs" />
+    <Compile Include="Models\Commands\BadPainter.cs" />
+    <Compile Include="Models\Commands\GoodPainter.cs" />
+    <Compile Include="Models\Commands\Interfaces\ICommand.cs" />
+    <Compile Include="Models\Commands\Interfaces\IPainter.cs" />
+    <Compile Include="Models\Commands\Invoker.cs" />
+    <Compile Include="Models\Commands\Paint.cs" />
+    <Compile Include="Models\Commands\PaintInGreen.cs" />
     <Compile Include="Models\Delivery\Delivery.cs" />
     <Compile Include="Models\Delivery\VolvoDelivery.cs" />
     <Compile Include="Models\Delivery\MercedesDelivery.cs" />
