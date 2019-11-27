@@ -58,6 +58,10 @@
     <Compile Include="Models\Interfaces\ITruck.cs" />
     <Compile Include="Models\Interfaces\IVehicle.cs" />
     <Compile Include="Models\MercedesTruck.cs" />
+    <Compile Include="Models\States\MersedesLoverState.cs" />
+    <Compile Include="Models\States\State.cs" />
+    <Compile Include="Models\States\StateContext.cs" />
+    <Compile Include="Models\States\VolvoLover.cs" />
     <Compile Include="Models\Strategy\AbstractFactoryPatternTestStrategy.cs" />
     <Compile Include="Models\Strategy\AllPatternsTestStrategy.cs" />
     <Compile Include="Models\Strategy\Interfaces\IStrategy.cs" />

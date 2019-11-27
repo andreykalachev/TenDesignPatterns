@@ -1,4 +1,5 @@
 ﻿using System;
+using TenDesignPatterns.Models.States;
 using TenDesignPatterns.Models.Strategy;
 
 namespace TenDesignPatterns
@@ -9,13 +10,27 @@ namespace TenDesignPatterns
         {
             #region Strategy
 
-            var templatePatternTestStrategy = new TemplatePatternTestStrategy();
-            var abstractFactoryPatternTestStrategy = new AbstractFactoryPatternTestStrategy();
-            var patternTestStrategyContext = new PatternTestStrategyContext(abstractFactoryPatternTestStrategy);
+            //commented out to test state pattern
 
-            patternTestStrategyContext.TestStrategy();
-            patternTestStrategyContext.SetStrategy(templatePatternTestStrategy);
-            patternTestStrategyContext.TestStrategy();
+            //var templatePatternTestStrategy = new TemplatePatternTestStrategy();
+            //var abstractFactoryPatternTestStrategy = new AbstractFactoryPatternTestStrategy();
+            //var patternTestStrategyContext = new PatternTestStrategyContext(abstractFactoryPatternTestStrategy);
+
+            //patternTestStrategyContext.TestStrategy();
+            //patternTestStrategyContext.SetStrategy(templatePatternTestStrategy);
+            //patternTestStrategyContext.TestStrategy();
+
+            #endregion
+
+            #region State
+
+
+            State state = new VolvoLover();
+            var stateContext = new StateContext(state);
+
+            stateContext.BuySomeCars();
+            stateContext.BuySomeTrucks();
+            stateContext.PrintYourOpinion();
 
             #endregion
 
