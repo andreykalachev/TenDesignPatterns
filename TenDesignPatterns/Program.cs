@@ -1,8 +1,4 @@
 ﻿using System;
-using TenDesignPatterns.Factories;
-using TenDesignPatterns.Models.Delivery;
-using TenDesignPatterns.Persistence;
-using TenDesignPatterns.Services.EventManager;
 using static TenDesignPatterns.Experiments;
 
 namespace TenDesignPatterns
@@ -47,11 +43,7 @@ namespace TenDesignPatterns
 
             #region Template
 
-            Delivery mercedesDelivery = new MercedesDelivery(40, 30);
-            Delivery volvoDelivery = new VolvoDelivery(10, 350);
-
-            TestDelivery(mercedesDelivery);
-            TestDelivery(volvoDelivery);
+            TestDeliveryTemplate();
 
             #endregion
 

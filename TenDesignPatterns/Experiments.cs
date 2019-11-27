@@ -69,7 +69,16 @@ namespace TenDesignPatterns
             }
         }
 
-        public static void TestDelivery(Delivery delivery)
+        public static void TestDeliveryTemplate()
+        {
+            var mercedesDelivery = new MercedesDelivery(40, 30);
+            var volvoDelivery = new VolvoDelivery(10, 350);
+
+            TestDeliveryTemplate(mercedesDelivery);
+            TestDeliveryTemplate(volvoDelivery);
+        }
+
+        private static void TestDeliveryTemplate(Delivery delivery)
         {
             delivery.Deliver();
             Console.WriteLine();
