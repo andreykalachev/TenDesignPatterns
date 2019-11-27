@@ -45,17 +45,31 @@ namespace TenDesignPatterns
             Print($"\nYou have built {VehicleStorage.GetInstance().Count} cars in a loop\n");
         }
 
-        public static void SaveAllVehiclesToFile()
+        public static void SaveAllVehiclesToFile(VehicleToFileLogger vehicleToFileLogger)
         {
             Print("saving vehicles...");
-            var allVehicles = VehicleStorage.GetInstance().GetAll();
-            VehicleToFileLogger.SaveVehicles(allVehicles);
+            var allVehicles = VehicleStorage.GetInstance().GetAll().ToList();
+
+            vehicleToFileLogger.Vehicles = allVehicles;
+            vehicleToFileLogger.SaveVehicles();
         }
 
-        public static void GetAllVehiclesFromFile()
+        public static void GetAllVehiclesFromFile(VehicleToFileLogger vehicleToFileLogger)
         {
-            var savedVehicles = VehicleToFileLogger.GetVehicles();
-            Print($"you have {savedVehicles?.Count()} vehicles saved");
+            vehicleToFileLogger.GetVehicles();
+            Print($"you have {vehicleToFileLogger.Vehicles?.Count()} vehicles saved");
+        }
+
+        public static void SaveVehicleStorageToFile(VehicleStorageToFileAdapter vehicleStorageToFileAdapter)
+        {
+            Print("saving vehicles...");
+            vehicleStorageToFileAdapter.SaveVehicles();
+        }
+
+        public static void GetAllVehiclesFromFile(VehicleStorageToFileAdapter vehicleStorageToFileAdapter)
+        {
+            vehicleStorageToFileAdapter.GetVehicles();
+            Print($"you have {vehicleStorageToFileAdapter.Vehicles?.Count()} vehicles saved");
         }
 
         public static void PrintAllVehiclesInfoUsingIteratorPattern()

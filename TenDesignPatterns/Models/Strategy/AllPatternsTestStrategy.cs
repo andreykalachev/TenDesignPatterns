@@ -1,6 +1,7 @@
 ﻿using TenDesignPatterns.Factories;
 using TenDesignPatterns.Models.Strategy.Interfaces;
 using TenDesignPatterns.Persistence;
+using TenDesignPatterns.Services;
 using TenDesignPatterns.Services.EventManager;
 using static TenDesignPatterns.Experiments;
 
@@ -33,8 +34,11 @@ namespace TenDesignPatterns.Models.Strategy
 
             #region Facade
 
-            SaveAllVehiclesToFile();
-            GetAllVehiclesFromFile();
+            var vehicles = vehicleStorage.GetAll();
+            var vehicleToFileLogger = new VehicleToFileLogger(vehicles);
+
+            SaveAllVehiclesToFile(vehicleToFileLogger);
+            GetAllVehiclesFromFile(vehicleToFileLogger);
 
             #endregion
 
