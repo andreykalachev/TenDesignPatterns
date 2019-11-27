@@ -3,7 +3,7 @@ using TenDesignPatterns.Factories;
 
 namespace TenDesignPatterns.Models.States
 {
-    class VolvoLover : State
+    public class VolvoLover : State
     {
         private IAbstractVehicleFactory _factory = new VolvoFactory();
 
