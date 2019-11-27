@@ -58,6 +58,12 @@
     <Compile Include="Models\Interfaces\ITruck.cs" />
     <Compile Include="Models\Interfaces\IVehicle.cs" />
     <Compile Include="Models\MercedesTruck.cs" />
+    <Compile Include="Models\Strategy\AbstractFactoryPatternTestStrategy.cs" />
+    <Compile Include="Models\Strategy\AllPatternsTestStrategy.cs" />
+    <Compile Include="Models\Strategy\Interfaces\IStrategy.cs" />
+    <Compile Include="Models\Strategy\ObserverPatternTestStrategy.cs" />
+    <Compile Include="Models\Strategy\PatternTestStrategyContext.cs" />
+    <Compile Include="Models\Strategy\TemplatePatternTestStrategy.cs" />
     <Compile Include="Models\VolvoCar.cs" />
     <Compile Include="Models\VolvoTruck.cs" />
     <Compile Include="Persistence\VehicleStorageEnumerator.cs" />

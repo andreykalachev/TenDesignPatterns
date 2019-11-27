@@ -1,5 +1,5 @@
 ﻿using System;
-using static TenDesignPatterns.Experiments;
+using TenDesignPatterns.Models.Strategy;
 
 namespace TenDesignPatterns
 {
@@ -7,53 +7,15 @@ namespace TenDesignPatterns
     {
         public static void Main(string[] args)
         {
-            #region Observer
+            #region Strategy
 
-            //commented out to demonstrate template method
+            var templatePatternTestStrategy = new TemplatePatternTestStrategy();
+            var abstractFactoryPatternTestStrategy = new AbstractFactoryPatternTestStrategy();
+            var patternTestStrategyContext = new PatternTestStrategyContext(abstractFactoryPatternTestStrategy);
 
-            //var vehicleStorage = VehicleStorage.GetInstance();
-            //var observer = new ConsoleLogger();
-
-            //vehicleStorage.EventManager.Subscribe(observer);
-
-            #endregion
-
-            #region Abstract Factory
-
-            //commented out to demonstrate template method
-
-            //GetAllVehiclesInfo();
-
-            #endregion
-
-            #region Singleton
-
-            //commented out to demonstrate template method
-
-            //AddCarsToStorage(new VolvoFactory(), 5);
-
-            #endregion
-
-            #region Facade
-
-            //commented out to demonstrate template method
-
-            //SaveAllVehiclesToFile();
-            //GetAllVehiclesFromFile();
-
-            #endregion
-
-            #region Iterator
-
-            //commented out to demonstrate template method
-
-            //PrintAllVehiclesInfoUsingIteratorPattern();
-
-            #endregion
-
-            #region Template
-
-            TestDeliveryTemplate();
+            patternTestStrategyContext.TestStrategy();
+            patternTestStrategyContext.SetStrategy(templatePatternTestStrategy);
+            patternTestStrategyContext.TestStrategy();
 
             #endregion
 
