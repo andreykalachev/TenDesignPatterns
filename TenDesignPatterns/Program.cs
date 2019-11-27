@@ -1,4 +1,6 @@
 ﻿using System;
+using TenDesignPatterns.Models;
+using TenDesignPatterns.Models.Commands;
 using TenDesignPatterns.Models.States;
 using TenDesignPatterns.Models.Strategy;
 
@@ -24,13 +26,33 @@ namespace TenDesignPatterns
 
             #region State
 
+            //commented out to test command pattern
 
-            State state = new VolvoLover();
-            var stateContext = new StateContext(state);
+            //State state = new VolvoLover();
+            //var stateContext = new StateContext(state);
 
-            stateContext.BuySomeCars();
-            stateContext.BuySomeTrucks();
-            stateContext.PrintYourOpinion();
+            //stateContext.BuySomeCars();
+            //stateContext.BuySomeTrucks();
+            //stateContext.PrintYourOpinion();
+
+            #endregion
+
+            #region Command
+
+            var goodClientCar = new MercedesCar();
+            var averageClientCar = new VolvoCar();
+            var badClientCar = new MercedesCar();
+
+            Console.WriteLine($"good: {goodClientCar.Color}\t bad: {badClientCar.Color}\t average: {averageClientCar.Color}");
+
+            var commandForGoodClients = new Paint(goodClientCar, new GoodPainter(), "Orange");
+            var commandForBadClients = new Paint(badClientCar, new BadPainter(), "Blue");
+            var commandForAverageClients = new PaintInGreen(averageClientCar);
+
+            var invoker = new Invoker(commandForGoodClients, commandForBadClients, commandForAverageClients);
+            invoker.PaintCars();
+
+            Console.WriteLine($"\ngood: {goodClientCar.Color}\t bad: {badClientCar.Color}\t average: {averageClientCar.Color}");
 
             #endregion
 
