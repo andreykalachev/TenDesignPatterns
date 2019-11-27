@@ -42,7 +42,19 @@ namespace TenDesignPatterns
                 var storage = VehicleStorage.GetInstance();
                 storage.Add(car);
             }
-            Print($"\nYou have built {VehicleStorage.GetInstance().Count} cars in a loop\n");
+            Print($"\nYou have built {numberOfCars} cars in a loop\n");
+        }
+
+        public static void AddTrucksToStorage(IAbstractVehicleFactory factory, int numberOfTrucks)
+        {
+            Print("\nBuilding loop----");
+            for (var i = 0; i < 5; i++)
+            {
+                var truck = factory.CreateTruck();
+                var storage = VehicleStorage.GetInstance();
+                storage.Add(truck);
+            }
+            Print($"\nYou have built {numberOfTrucks} cars in a loop\n");
         }
 
         public static void SaveAllVehiclesToFile()
