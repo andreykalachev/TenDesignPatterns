@@ -59,6 +59,7 @@
     <Compile Include="Models\Interfaces\IVehicle.cs" />
     <Compile Include="Models\MercedesTruck.cs" />
     <Compile Include="Models\Strategy\AbstractFactoryPatternTestStrategy.cs" />
+    <Compile Include="Models\Strategy\AdapterPatternStrategyTest.cs" />
     <Compile Include="Models\Strategy\AllPatternsTestStrategy.cs" />
     <Compile Include="Models\Strategy\Interfaces\IStrategy.cs" />
     <Compile Include="Models\Strategy\ObserverPatternTestStrategy.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Services\EventManager\ConsoleLogger.cs" />
     <Compile Include="Services\EventManager\EventManager.cs" />
     <Compile Include="Services\EventManager\IObserver.cs" />
+    <Compile Include="Services\VehicleStorageToFileAdapter.cs" />
     <Compile Include="Services\VehicleToFileLogger.cs" />
     <Compile Include="Persistence\VehicleStorage.cs" />
     <Compile Include="Program.cs" />

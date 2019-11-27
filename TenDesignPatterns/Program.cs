@@ -9,12 +9,23 @@ namespace TenDesignPatterns
         {
             #region Strategy
 
-            var templatePatternTestStrategy = new TemplatePatternTestStrategy();
-            var abstractFactoryPatternTestStrategy = new AbstractFactoryPatternTestStrategy();
-            var patternTestStrategyContext = new PatternTestStrategyContext(abstractFactoryPatternTestStrategy);
+            //commented out to test adapter pattern
 
-            patternTestStrategyContext.TestStrategy();
-            patternTestStrategyContext.SetStrategy(templatePatternTestStrategy);
+            //var templatePatternTestStrategy = new TemplatePatternTestStrategy();
+            //var abstractFactoryPatternTestStrategy = new AbstractFactoryPatternTestStrategy();
+            //var patternTestStrategyContext = new PatternTestStrategyContext(abstractFactoryPatternTestStrategy);
+
+            //patternTestStrategyContext.TestStrategy();
+            //patternTestStrategyContext.SetStrategy(templatePatternTestStrategy);
+            //patternTestStrategyContext.TestStrategy();
+
+            #endregion
+
+            #region Adapter
+
+            var adapterPatternStrategyTest = new AdapterPatternStrategyTest();
+            var patternTestStrategyContext = new PatternTestStrategyContext(adapterPatternStrategyTest);
+
             patternTestStrategyContext.TestStrategy();
 
             #endregion

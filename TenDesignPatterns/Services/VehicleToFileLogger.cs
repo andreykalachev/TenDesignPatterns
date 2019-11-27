@@ -6,32 +6,39 @@ using TenDesignPatterns.Models.Interfaces;
 
 namespace TenDesignPatterns.Services
 {
-    public static class VehicleToFileLogger
+    public class VehicleToFileLogger
     {
+        public IEnumerable<IVehicle> Vehicles { get; set; }
+
         private static readonly JsonSerializerSettings SettingsJson = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
         private static readonly string VehiclesFile = "vehicles.txt";
 
-        public static void SaveVehicles(IEnumerable<IVehicle> vehicles)
+        public VehicleToFileLogger(IEnumerable<IVehicle> vehicles)
         {
-            if (vehicles == null)
+            Vehicles = vehicles;
+        }
+
+        public void SaveVehicles()
+        {
+            if (Vehicles == null)
             {
                 return;
             }
 
             using (var streamWriter = new StreamWriter(VehiclesFile))
             {
-                var serializedObject = JsonConvert.SerializeObject(vehicles, SettingsJson);
+                var serializedObject = JsonConvert.SerializeObject(Vehicles, SettingsJson);
                 streamWriter.WriteLine(serializedObject);
             }
         }
 
-        public static IEnumerable<IVehicle> GetVehicles()
+        public void GetVehicles()
         {
-            IEnumerable<IVehicle> vehicles = new List<IVehicle>();
+            Vehicles = new List<IVehicle>();
 
             if (!File.Exists(VehiclesFile))
             {
-                return vehicles;
+                return;
             }
 
             try
@@ -39,15 +46,13 @@ namespace TenDesignPatterns.Services
                 using (var streamReader = new StreamReader(VehiclesFile))
                 {
                     var fileContent = streamReader.ReadToEnd();
-                    vehicles = JsonConvert.DeserializeObject<IEnumerable<IVehicle>>(fileContent, SettingsJson);
+                    Vehicles = JsonConvert.DeserializeObject<IEnumerable<IVehicle>>(fileContent, SettingsJson);
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine("oops, something's gone wrong\n" + e.Message);
             }
-
-            return vehicles;
         }
     }
 }
